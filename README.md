@@ -1,6 +1,6 @@
 # BERT
 
-This is an implementation of BERT (Bidirectional Encoder Representations from Transformers) based on the [Pre-training of Deep Bidirectional Transformers for Language Understanding](https://arxiv.org/abs/1810.04805) paper by Jacob Devlin, Ming-Wei Chang, Kenton Lee, and Kristina Toutanova.
+This is an implementation of Bidirectional Encoder Representations from Transformers (BERT) based on the [Pre-training of Deep Bidirectional Transformers for Language Understanding](https://arxiv.org/abs/1810.04805) paper by Jacob Devlin, Ming-Wei Chang, Kenton Lee, and Kristina Toutanova.
 
 ## Overview
 
@@ -17,27 +17,38 @@ Every phase can be run independently. The complete BERT model is assembled in [b
 
 ## Usage
 
+```bash
+git clone https://github.com/SepehrAkbari/myBERT.git
+cd myBERT
+pip install -r requirements.txt
+```
+
 To run a phase independently:
 
 ```bash
+cd src
 python phase<number>_<name>.py
+cd ../
 ```
 
 To run the complete BERT model for pre-training and sentiment analysis:
 
 ```bash
+cd src
 python bert.py [-h] 
                --task {pretrain,sentiment} 
                --text "First text." 
                [--text2 "Second text."] 
                [--encoder {tiny,random}]
+cd ../
 ```
 
-The `random` encoder initializes weights randomly, while the `tiny` encoder uses pre-trained weights from the bert-tiny model which can be downloaded using:
+The `random` encoder initializes weights randomly, while the `tiny` encoder uses pre-trained weights from the bert-tiny model which can be installed using:
 
 ```bash
-cd config
+cd weights
 python _weights.py
+cd ../
 ```
 
 ## Contributing
